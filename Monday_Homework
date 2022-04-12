@@ -1,0 +1,71 @@
+-- Question 1
+-- Answer: 2
+SELECT COUNT(last_name)
+FROM actor
+WHERE last_name LIKE 'Wahlberg'; 
+
+-- Question 2
+-- Answer: 5607
+SELECT COUNT(amount)
+FROM payment
+WHERE amount BETWEEN 3.99 AND 5.99;
+
+-- Question 3
+-- Answer: Multiple have 8 
+SELECT film_id, COUNT(film_id) as mycount
+FROM inventory
+GROUP BY film_id
+ORDER BY mycount DESC; 
+
+-- Question 4
+-- Answer: 0
+SELECT COUNT(last_name)
+FROM customer
+WHERE last_name LIKE 'William';
+
+-- Question 5
+-- Answer: Staff with staff_id 1(Mike) with 8040 rentals
+SELECT staff_id, COUNT(staff_id) mycount
+FROM rental
+GROUP BY staff_id
+ORDER BY mycount DESC; 
+
+-- Question 6
+-- Answer: 378 districts
+SELECT COUNT(DISTINCT district)
+FROM address;
+
+-- Question 7
+-- Answer: film with film_id 508 with 15 actors
+SELECT film_id, COUNT(actor_id) AS mycount
+FROM film_actor
+GROUP BY film_id
+ORDER BY mycount DESC;
+
+-- Question 8
+-- Answer: 13
+SELECT store_id, COUNT(last_name)
+FROM customer
+WHERE store_id = 1 AND last_name LIKE '%es'
+GROUP BY store_id;
+
+-- Question 9
+-- Answer: 3
+SELECT amount, COUNT(amount)
+FROM payment
+WHERE customer_id BETWEEN 380 AND 430
+GROUP BY amount
+HAVING COUNT(amount) > 250;
+
+
+-- Question 10
+-- Answer: 5 ratings. PG-13 has most movies with 223
+SELECT rating, COUNT(rating)mycount
+FROM film
+GROUP BY rating
+ORDER BY mycount DESC;
+
+
+
+
+
